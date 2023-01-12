@@ -1,0 +1,23 @@
+# coordinates file
+coordinates /home/svogt/stereoselectivity/neb/d-lac/neb_ts1_0010/coords.xyz
+
+# molecule charge
+charge 0
+spinmult 1
+
+#model
+basis def2-svp
+method pbe0
+
+# driver
+run ts
+min_image 25
+nstep 50
+timings yes
+
+# keywords
+dftd d3
+convthre 3.0e-6
+threall 1.0e-13
+scf diis+a
+
