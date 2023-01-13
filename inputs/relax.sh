@@ -1,0 +1,21 @@
+/opt/shared/QCScan/relax.py --client_address 152.74.10.245:7777 \
+    --username 'svogt'\
+    --password "7kyRT-Mrow3jH0Lg6b9YIhEjAcvU9EpFBb9ouMClU5g" \
+    --starting-geometry "/home/svogt/fractal/catalisis/w2.xyz" \
+    --scan-coordinate "1 11" \
+    --scan-type "distance" \
+    --base-name "NH2CO+H2O--NH2CHO+OH" \
+    --optimization-level-of-theory "b3lyp-d3bj_def2-svp" \
+    --scan-level-of-theory "pbe-d3bj_def2-svp" \
+    --energy-level-of-theory "hf3c_minix" \
+    --initial-coordinate-value 0 \
+    --final-coordinate-value 1.1 \
+    --increment -0.05 \
+    --entry-rounding 2 \
+    --geometric-options '{"maxiter" : 150}' \
+    --gradient-options {} \
+    --program "psi4" \
+    --cores 4 \
+    --memory 16 \
+    --tag "refinement" \
+
