@@ -1,4 +1,4 @@
-/home/svogt/repos/QCScan/relax_new.py --client_address 152.74.10.245:7778 \
+/opt/shared/QCScan/relax.py  --client_address 152.74.10.245:7778 \
     --username ''\
     --password "" \
     --starting-geometry "38551" \
