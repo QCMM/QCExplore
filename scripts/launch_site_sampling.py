@@ -182,7 +182,7 @@ try:
     ds_opt = client.get_collection("OptimizationDataset", cluster_coll)
 except KeyError:
     print("""Collection with structure to be sampled  {} does not exist. Please check name. Exiting...
-    """.format(cluster_col))
+    """.format(cluster_coll))
     sys.exit(1)
 
 # Retriving the cluster molecule object from the dataset
