@@ -114,16 +114,16 @@ parser.add_option("--sampling-tag",
                   help="The tag to used to specify the qcfractal-manager for the sampling optimization  (default: sampling)",
                   )
 
-parser.add_option("-ks",
-                  "--keyword-id-sampling",
+parser.add_option("--keyword-id-sampling",
                   dest="keyword_id",
                   help="ID of the QC keywords for the OptimizationDataSet specification (default: None)",
                   default=None)
-parser.add_option("-ks",
-                  "--keyword-id-refine",
+
+parser.add_option("--keyword-id-refine",
                   dest="keyword_id_ref",
                   help="ID of the QC keywords for the OptimizationDataSet specification of the refinement(default: None)",
                   default=None)
+
 parser.add_option("--purge",
                   dest="purge",
                   type = "float",
