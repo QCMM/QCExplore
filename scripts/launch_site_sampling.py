@@ -114,10 +114,15 @@ parser.add_option("--sampling-tag",
                   help="The tag to used to specify the qcfractal-manager for the sampling optimization  (default: sampling)",
                   )
 
-parser.add_option("-k",
-                  "--keyword-id",
+parser.add_option("-ks",
+                  "--keyword-id-sampling",
                   dest="keyword_id",
                   help="ID of the QC keywords for the OptimizationDataSet specification (default: None)",
+                  default=None)
+parser.add_option("-ks",
+                  "--keyword-id-refine",
+                  dest="keyword_id_ref",
+                  help="ID of the QC keywords for the OptimizationDataSet specification of the refinement(default: None)",
                   default=None)
 parser.add_option("--purge",
                   dest="purge",
@@ -150,6 +155,7 @@ basis  = options.level_of_theory.split("_")[1]
 program = options.program
 tag = options.tag
 kw_id   = options.keyword_id
+kw_id_ref   = options.keyword_id_ref
 opt_lot = options.level_of_theory
 rmsd_symm = options.rmsd_symmetry
 rmsd_val = options.rmsd_val
@@ -215,22 +221,22 @@ basis = b
 
 if program == 'terachem':
     method = m.split('-')[0]
-    if 'd3' in method:
-        kw = ptl.models.KeywordSet(**{"values": {"dftd": "d3", "convthre" : '3.0e-7', "threall" : '1.0e-13', 'dftgrid' : 2,  "scf" : "diis+a"}})
-        kw_id = client.add_keywords([kw])[0]
-    else:
-        kw = ptl.models.KeywordSet(**{"values": {"convthre" : '3.0e-7', "threall" : '1.0e-13', "scf" : "diis+a"}})
-        kw_id = client.add_keywords([kw])[0]
-
+    if kw_id is None:
+        if 'd3' in method:
+            kw = ptl.models.KeywordSet(**{"values": {"dftd": "d3", "convthre" : '3.0e-7', "threall" : '1.0e-13',  "scf" : "diis+a"}})
+            kw_id = client.add_keywords([kw])[0]
+        else:
+            kw = ptl.models.KeywordSet(**{"values": {"convthre" : '3.0e-7', "threall" : '1.0e-13', "scf" : "diis+a"}})
+            kw_id = client.add_keywords([kw])[0]
 
 
 add_ref_spec = {'name': m+'_'+b,
         'description': 'Geometric + '+program+'/'+m+'/'+b,
-                'optimization_spec': {'program': 'geometric', 'keywords': {'converge' : ["set" , "gau_tight"], 'maxiter': 150}},
+                'optimization_spec': {'program': 'geometric', 'keywords': {'converge' : ["set" , "gau"], 'maxiter': 150}},
         'qc_spec': {'driver': 'gradient',
         'method': method,
         'basis': basis,
-        'keywords': kw_id,
+        'keywords': kw_id_ref,
         'program': program}}
 
 
