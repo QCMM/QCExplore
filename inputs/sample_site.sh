@@ -20,6 +20,7 @@ python /home/svogt/repos/beep/scripts/launch_site_sampling.py --client-address 1
      #--password None  \
      #--grid-size sparse
     # --keyword_id 1  \
+    # --keyword_id_ref 2  \
     #--rmsd_symmetry
     #--level_of_theory upbe0-d3_def2-svp \
 
