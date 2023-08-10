@@ -109,7 +109,6 @@ parser.add_option("--en_program",
                   help="The program for the energy computation (Default: psi4)",
                    default="psi4",
 )
-)
 parser.add_option("--tag",
                   dest="tag",
                   help="The tag to used to specify the qcfractal-manager for the scan energy computation (default: refinement)",
