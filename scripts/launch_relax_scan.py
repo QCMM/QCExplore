@@ -103,6 +103,7 @@ parser.add_option("--memory",
                    type = "int",
                   help="Amount of memory to use in GB (Default: 16)",
                    default=16,
+)
 parser.add_option("--en_program",
                    dest="en_program",
                   help="The program for the energy computation (Default: psi4)",
